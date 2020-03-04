@@ -5,7 +5,9 @@ import store from "./store";
 import '@/assets/scss/common.scss';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import VueCompositionApi from '@vue/composition-api';
 
+Vue.use(VueCompositionApi);
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
