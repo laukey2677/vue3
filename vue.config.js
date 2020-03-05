@@ -154,15 +154,11 @@ module.exports = {
 		hotOnly: false,
 		/* 使用代理 */
 		proxy: {
-			"/api": {
-				/* 目标代理服务器地址 */
-				// target: "http://192.168.0.106:8080/",
-				target: "http://192.168.1.126:8080/", //阳洋
-				/* 允许跨域 */
+			"/devApi": {
+				target: "http://www.web-jshtml.cn/productapi",
 				changeOrigin: true,
-				ws: true,
 				pathRewrite: {
-					"^/api": ""
+					"^/devApi": ""
 				}
 			}
 		},

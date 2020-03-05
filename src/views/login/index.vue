@@ -29,7 +29,7 @@
 							<el-input v-model="ruleForm.vcode"></el-input>
 						</el-col>
 						<el-col :span="8">
-							<el-button class="btn" type="success" size="medium" @click="submitForm('ruleForm')">提交</el-button>
+							<el-button class="btn" type="success" size="medium" @click="getVcode()">获取验证码 </el-button>
 						</el-col>
 					</el-row>
 				</el-form-item>
@@ -48,6 +48,7 @@ import {
 	validatePwd,
 	validateVcode
 } from "@/utils/validate.js";
+import { GetMessageCode } from '@/api/login.js';
 import { reactive, ref } from "@vue/composition-api";
 
 export default {
@@ -104,7 +105,13 @@ export default {
 					return false;
 				}
 			});
-		};
+        };
+        /**
+         * 获取验证码
+         */
+        const getVcode = (() => {
+            GetMessageCode();
+        })
 		const resetForm = formName => {
 			this.$refs[formName].resetFields();
         };
@@ -120,7 +127,8 @@ export default {
 			ruleForm,
 			rules,
 			submitForm,
-			resetForm
+            resetForm,
+            getVcode,
 		};
 	}
 };
